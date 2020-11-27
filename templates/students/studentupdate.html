@@ -1,0 +1,10 @@
+{% extends "students/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<a href="{% url 'save-student' %}"
+  ><button class="btn btn-primary">Save StudentData</button></a
+>
+<a href="{% url 'update-student' %}"
+  ><button class="btn btn-danger">Update To Next Sem</button></a
+>
+{% endblock %}

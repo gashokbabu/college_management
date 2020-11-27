@@ -1,0 +1,22 @@
+{% extends "students/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="registercard">
+    	<form class="card p-md-4 p-2" method='POST'>
+
+    		{% csrf_token %}
+    		<fieldset class="form-group">
+    			<legend class="border-bottem mb-4">Student Registration Form</legend>
+    			{{ form|crispy }} <!--form.as_p:-it render the form into paragraph to come in aline and crispy is a 3rd party filter -->
+    			<div class="form-group">
+    			    <button type="submit" class="btn btn-outline-info">Sign Up</button>
+    			</div>
+    		</fieldset>
+				<div class="border-top pt-3">
+    		<small class="text-muted">Already have an account?<a class='ml-2' href="{% url 'login' %}">Log In</a></small>
+    	    </div>
+
+    	</form>
+</div>
+{% endblock %}

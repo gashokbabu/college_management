@@ -1,0 +1,29 @@
+{% extends "students/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="logincard">
+	<form class="card p-md-4 p-2" method='POST'>
+    		{% csrf_token %}
+    		<fieldset class="form-group">
+    			<legend class="border-bottem mb-4">Student LogIn Form</legend>
+    			{{ form|crispy }} <!--form.as_p:-it render the form into paragraph to come in aline and crispy is a 3rd party filter -->
+    			<div class="form-group">
+    			    <button type="submit" class="btn btn-outline-info">Log In</button>
+					<small class="text-muted ml-2">
+                        <a href="{% url 'password_reset' %}">Forgot your password</a>
+                    </small>
+    			</div>
+    		</fieldset>
+            <div class="border-top pt-3 pb-3">
+    		     <small class="text-muted">Not have an account? Create one <a class='ml-2' href="{% url 'register' %}">Register</a></small>
+    	    </div>
+    	</form>
+</div>
+
+
+
+
+{% endblock %}

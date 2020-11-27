@@ -1,0 +1,38 @@
+{% extends "students/base.html" %}
+{% block content %}
+<form method="POST">
+{% csrf_token %}
+<div class="card">
+    <div class="form-group">
+  <label for="year">Year:</label>
+  <select class="form-control" id="year" name="year">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+   </div>
+    <div class="form-group">
+  <label for="sem">Sem:</label>
+  <select class="form-control" id="sem" name="sem">
+    <option>1</option>
+    <option>2</option>
+  </select>
+    </div>
+
+<div class="form-group">
+  <label for="subject1">Subject1:</label>
+  <input type="text" class="form-control" id="subject1" name="subject1">
+</div>
+<div class="form-group">
+  <label for="subject2">Subject2:</label>
+  <input type="text" class="form-control" id="subject2" name="subject2">
+</div>
+<div class="form-group">
+  <label for="subject3">Subject3:</label>
+  <input type="text" class="form-control" id="subject3" name="subject3">
+</div>
+</div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

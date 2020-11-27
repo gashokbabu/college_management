@@ -1,0 +1,67 @@
+{% extends "students/base.html" %} 
+{% load crispy_forms_tags %} 
+{% block profile%}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        class="rounded-circle image-fluid image-size"
+        style="height: 70%; width: 70%;"
+        src="{{ student.profile_pic.url }}"
+      />
+    </div>
+    <div class="col-md-8">
+        {% if student.name %}
+      <div>
+        <h2>Name:{{student.name}}</h2>
+          <h4>RegNo:{{student.regNo}}</h4>
+        <a class="btn btn-outline-info" href="{% url 'set-profile' %}">Edit Profile</a><br/>
+      </div>
+      
+     <h4>Current Year:{{student.Year}}</h4>
+     <h4>Current Semister:{{student.Sem}}</h4>
+        <h4>Section:{{student.section}}</h4>
+      <h4>Attendence Percentage:{{student.attnd}}</h4><small>Last Updated:{{student.lastUpdate}}</small>
+        {% else %}
+        <a class="btn btn-outline-info" href="{% url 'set-profile' %}">Set Profile First</a>
+        {% endif %}
+     
+
+    </div>
+  </div>
+</div>
+<br/>
+{% if student.subject1 == None %}
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{student.subject1}}</td>
+                        <td>{{student.marks1}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{student.subject2}}</td>
+                        <td>{{student.marks2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{student.subject3}}</td>
+                        <td>{{student.marks3}}</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
